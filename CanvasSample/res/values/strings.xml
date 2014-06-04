@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, CanvasActivity!</string>
+    <string name="app_name">CanvasSample</string>
+    <string name="btn_clear">キャンバスをクリア</string>
+    
+    <string name="btn_black">BK</string>
+    <string name="btn_red">RD</string>
+    <string name="btn_green">GR</string>
+    <string name="btn_blue">BU</string>
+</resources>
