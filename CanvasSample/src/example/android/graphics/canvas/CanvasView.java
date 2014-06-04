@@ -108,59 +108,10 @@ public class CanvasView extends View {
 		// åªç›ÇÃêFê›íËÇï€éù
 		int recentColor = paint.getColor();
 		// ï`âÊèàóù
-		Point sp = new Point(-1, -1);
-		// çïÇÃï`âÊèàóù
-		for (Point ep : blackPts) {
-			paint.setColor(Color.BLACK);
-			if (sp.x >= 0) {
-				if (ep.x >= 0) {
-					canvas.drawLine(sp.x, sp.y, ep.x, ep.y, paint);
-				} else {
-					canvas.drawPoint(sp.x, sp.y, paint);
-				}
-			}
-			sp = ep;
-		}
-		// ê‘ÇÃï`âÊèàóù
-		sp = new Point(-1, -1);
-		for (Point ep : redPts) {
-			paint.setColor(Color.RED);
-			if (sp.x >= 0) {
-				if (ep.x >= 0) {
-					canvas.drawLine(sp.x, sp.y, ep.x, ep.y, paint);
-				} else {
-					canvas.drawPoint(sp.x, sp.y, paint);
-				}
-			}
-			sp = ep;
-		}
-		// óŒÇÃï`âÊèàóù
-		sp = new Point(-1, -1);
-		for (Point ep : greenPts) {
-			paint.setColor(Color.GREEN);
-			if (sp.x >= 0) {
-				if (ep.x >= 0) {
-					canvas.drawLine(sp.x, sp.y, ep.x, ep.y, paint);
-				} else {
-					canvas.drawPoint(sp.x, sp.y, paint);
-				}
-			}
-			sp = ep;
-		}
-		// ê¬ÇÃï`âÊèàóù
-		sp = new Point(-1, -1);
-		for (Point ep : bluePts) {
-			paint.setColor(Color.BLUE);
-			if (sp.x >= 0) {
-				if (ep.x >= 0) {
-					canvas.drawLine(sp.x, sp.y, ep.x, ep.y, paint);
-				} else {
-					canvas.drawPoint(sp.x, sp.y, paint);
-				}
-			}
-			sp = ep;
-		}
-
+		drawing(canvas, blackPts, Color.BLACK);
+		drawing(canvas, redPts, Color.RED);
+		drawing(canvas, greenPts, Color.GREEN);
+		drawing(canvas, bluePts, Color.BLUE);
 		// å≥ÇÃêFÇ…ñﬂÇ∑
 		paint.setColor(recentColor);
 	}
@@ -188,6 +139,22 @@ public class CanvasView extends View {
 		case TAG_BLUE:
 			paint.setColor(Color.BLUE);
 			break;
+		}
+	}
+
+	public void drawing(Canvas canvas, ArrayList<Point> points, int color) {
+		Point sp = new Point(-1, -1);
+		// çïÇÃï`âÊèàóù
+		for (Point ep : points) {
+			paint.setColor(color);
+			if (sp.x >= 0) {
+				if (ep.x >= 0) {
+					canvas.drawLine(sp.x, sp.y, ep.x, ep.y, paint);
+				} else {
+					canvas.drawPoint(sp.x, sp.y, paint);
+				}
+			}
+			sp = ep;
 		}
 	}
 }
