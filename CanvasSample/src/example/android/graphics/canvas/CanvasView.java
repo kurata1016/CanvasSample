@@ -57,7 +57,7 @@ public class CanvasView extends View {
 		switch (event.getAction()) {
 		case MotionEvent.ACTION_DOWN:
 		case MotionEvent.ACTION_MOVE:
-			// 　現在の色設定によって保持するポイントを振り分ける
+			// 現在の色設定によって保持するポイントを振り分ける
 			switch (paint.getColor()) {
 			case Color.BLACK:
 				// 画面に指が付いたまたは動いている場合はその座標を設定
@@ -122,6 +122,7 @@ public class CanvasView extends View {
 			sp = ep;
 		}
 		// 赤の描画処理
+		sp = new Point(-1, -1);
 		for (Point ep : redPts) {
 			paint.setColor(Color.RED);
 			if (sp.x >= 0) {
@@ -134,6 +135,7 @@ public class CanvasView extends View {
 			sp = ep;
 		}
 		// 緑の描画処理
+		sp = new Point(-1, -1);
 		for (Point ep : greenPts) {
 			paint.setColor(Color.GREEN);
 			if (sp.x >= 0) {
@@ -146,6 +148,7 @@ public class CanvasView extends View {
 			sp = ep;
 		}
 		// 青の描画処理
+		sp = new Point(-1, -1);
 		for (Point ep : bluePts) {
 			paint.setColor(Color.BLUE);
 			if (sp.x >= 0) {
